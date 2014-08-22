@@ -1,0 +1,16 @@
+{"version":3,
+ "file":"resources/public/perfection_prod.js.map",
+ "sources":
+ ["prod-out/goog/base.js", "prod-out/goog/string/string.js",
+  "prod-out/goog/object/object.js",
+  "prod-out/goog/string/stringbuffer.js",
+  "prod-out/goog/debug/error.js", "prod-out/goog/dom/nodetype.js",
+  "prod-out/goog/asserts/asserts.js", "prod-out/goog/array/array.js",
+  "prod-out/cljs/core.cljs", "prod-out/constants_table.cljs",
+  "prod-out/perfection/core.cljs"],
+ "lineCount":3,
+ "mappings":
+ "cQ0ZS,MAASA,KAAAC,QACID,IAAAC,KAAAC,EAAA,0BAAA,zBAAAF,IAAAC,KAAAC,EAAA,WAAA,EAAA,EAAAF,IAAAC,KAAAE,KAAA,KAAA,WAAA,EAAA,5FACpB,mBAAA,0EAAA,CAAA,9FAAc,mBAAA,0EAAA,CAAA,CE1ZhBC,OAAAC,IAAA,eAAA,dAAA,ZAAMD,OAAAC,IAAA,eAAA",
+ "names":
+ ["Math", "imul", "cljs$core$IFn$_invoke$arity$2", "call", "console",
+  "log"]}

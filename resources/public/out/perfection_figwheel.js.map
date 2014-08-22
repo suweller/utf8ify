@@ -1,0 +1,7 @@
+{"version":3,
+ "file":
+ "/Users/suweller/Documents/open-source/perfection/resources/public/out/perfection_figwheel.js",
+ "sources":["perfection_fighwheel.cljs"],
+ "lineCount":8,
+ "mappings":";AAAA;;;;AAGA,AAACA",
+ "names":["figwheel.client/watch-and-reload"]}

@@ -1,0 +1,8 @@
+{"version":3,
+ "file":
+ "/Users/suweller/Documents/open-source/perfection/resources/public/out/perfection/core.js",
+ "sources":["core.cljs"],
+ "lineCount":8,
+ "mappings":
+ ";AAAA;;AAEA,YAAA,ZAAMA;AAGN,sBAAA,mBAAA,zCAAMC,oCAAKC,EAAEC,GACX,QAAGD,IAAEC",
+ "names":["js/console", "perfection.core/add", "a", "b"]}
