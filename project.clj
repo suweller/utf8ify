@@ -5,7 +5,9 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2277"]
-                 [figwheel "0.1.3-SNAPSHOT"]]
+                 [figwheel "0.1.3-SNAPSHOT"]
+                 [jayq "2.5.2"]
+                 [crate "0.2.4"]]
 
   :jvm-opts ["-Xmx1G"]
 

@@ -1,3 +1,21 @@
 body {
   background: silver;
 }
+#js-draw {
+  position: absolute;
+}
+.red, .green, .blue {
+  position: absolute;
+  height: 5px;
+  width: 5px;
+  border-radius: 5px
+}
+.red {
+  background: red;
+}
+.green {
+  background: green;
+}
+.blue {
+  background: blue;
+}
