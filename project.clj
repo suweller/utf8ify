@@ -7,7 +7,8 @@
                  [org.clojure/clojurescript "0.0-2277"]
                  [figwheel "0.1.3-SNAPSHOT"]
                  [jayq "2.5.2"]
-                 [crate "0.2.4"]]
+                 [crate "0.2.4"]
+                 [om "0.7.1"]]
 
   :jvm-opts ["-Xmx1G"]
 
@@ -35,12 +36,4 @@
                         :notify-command ["phantomjs" :cljs.test/runner "perfection_test.js"]
                         :compiler {
                                    :output-to "perfection_test.js"
-                                   :optimizations :whitespace}}
-                       {:id "release"
-                        :source-paths ["src/perfection"]
-                        :compiler {
-                                   :output-to "resources/public/perfection_prod.js"
-                                   :output-dir "resources/public/prod-out"
-                                   :optimizations :advanced
-                                   :pretty-print false
-                                   :source-map "resources/public/perfection_prod.js.map"}}]})
+                                   :optimizations :whitespace}}]})

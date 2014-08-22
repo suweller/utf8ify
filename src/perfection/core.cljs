@@ -5,19 +5,21 @@
                        when done resolve pipe on bind attr
                        offset] :as jq]
     [jayq.util :refer [log]]
-    [crate.core :as crate])
+    [crate.core :as crate]
+    [om.core :as om :include-macros true]
+    [om.dom :as dom :include-macros true])
   (:use-macros [crate.def-macros :only [defpartial]])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
-(defpartial grid []
-  [:div.grid-8x8
-   (repeat 64 [:div.cell])])
+(defn grid [data owner]
+  (om/component
+    (let [size (:size data)
+          cell-count (* size size)]
+      (apply dom/div #js {:className (str "grid grid-" size "x" size)}
+            (repeat cell-count (dom/div #js {:className "cell"}))))))
 
-(if (zero? (count ($ ".grid-8x8")))
-  (append ($ "body")
-          (grid)))
-
-; Helper functions
+(om/root grid {:size 8}
+              {:target (. js/document (getElementById "app")) })
 
 (defn xy-message [ch msg-name xy-obj]
   (put! ch [msg-name {:x (.-pageX xy-obj) :y (.-pageY xy-obj)}]))

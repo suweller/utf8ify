@@ -9,6 +9,7 @@ goog.addDependency("../cljs/core/async/impl/ioc_helpers.js", ['cljs.core.async.i
 goog.addDependency("../clojure/set.js", ['clojure.set'], ['cljs.core']);
 goog.addDependency("../crate/binding.js", ['crate.binding'], ['cljs.core', 'clojure.set']);
 goog.addDependency("../cljs/core/async/impl/buffers.js", ['cljs.core.async.impl.buffers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
+goog.addDependency("../om/dom.js", ['om.dom'], ['cljs.core']);
 goog.addDependency("../cljs/core/async/impl/dispatch.js", ['cljs.core.async.impl.dispatch'], ['cljs.core', 'cljs.core.async.impl.buffers']);
 goog.addDependency("../cljs/core/async/impl/channels.js", ['cljs.core.async.impl.channels'], ['cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.buffers', 'cljs.core.async.impl.protocols']);
 goog.addDependency("../clojure/string.js", ['clojure.string'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
@@ -21,5 +22,6 @@ goog.addDependency("../cljs/reader.js", ['cljs.reader'], ['goog.string', 'cljs.c
 goog.addDependency("../figwheel/client.js", ['figwheel.client'], ['goog.net.jsloader', 'cljs.core', 'cljs.core.async', 'clojure.string', 'cljs.reader']);
 goog.addDependency("../perfection_figwheel.js", ['perfection_figwheel'], ['cljs.core', 'figwheel.client']);
 goog.addDependency("../jayq/util.js", ['jayq.util'], ['cljs.core']);
+goog.addDependency("../om/core.js", ['om.core'], ['cljs.core', 'om.dom', 'goog.ui.IdGenerator']);
 goog.addDependency("../jayq/core.js", ['jayq.core'], ['cljs.core', 'clojure.string', 'cljs.reader']);
-goog.addDependency("../perfection/core.js", ['perfection.core'], ['crate.core', 'cljs.core', 'cljs.core.async', 'jayq.core', 'jayq.util']);
+goog.addDependency("../perfection/core.js", ['perfection.core'], ['crate.core', 'cljs.core', 'om.dom', 'cljs.core.async', 'jayq.core', 'om.core', 'jayq.util']);
