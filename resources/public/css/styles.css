@@ -16,17 +16,12 @@ body {
 .blue { background: blue; }
 
 .grid {
+  width: 320px;
   background: #030;
 }
 .grid .cell {
   display: inline-block;
-  border: 1px solid grey;
-}
-.grid-8x8 {
-  height: 320px;
-  width: 320px;
-}
-.grid-8x8 .cell {
   height: 40px;
   width: 40px;
+  border: 1px solid grey;
 }

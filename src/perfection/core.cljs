@@ -11,14 +11,17 @@
   (:use-macros [crate.def-macros :only [defpartial]])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
+(def grid-size 64)
+(def app-state (atom
+                 {:cells (take grid-size (map (fn [n] {:id n}) (iterate inc 0)))} ))
+
 (defn grid [data owner]
   (om/component
-    (let [size (:size data)
-          cell-count (* size size)]
-      (apply dom/div #js {:className (str "grid grid-" size "x" size)}
-            (repeat cell-count (dom/div #js {:className "cell"}))))))
+    (let [cells (:cells data)]
+      (apply dom/div #js {:className "grid"}
+            (map (fn [cell] (dom/div #js {:data-id (:id cell) :className "cell"})) cells)))))
 
-(om/root grid {:size 8}
+(om/root grid @app-state
               {:target (. js/document (getElementById "app")) })
 
 (defn xy-message [ch msg-name xy-obj]
@@ -79,12 +82,11 @@
             (draw-point selector color xy-obj offset))
           (recur (<! drawing-chan)))))))
 
-(let [selector ".grid-8x8"
+(let [selector ".grid"
       drawing-chan (draw-chan selector)]
   (go
     (loop [[msg-name msg-data] (<! drawing-chan)
            color-i 0]
-      (.log js/console msg-name)
       (if (= :draw msg-name)
         (<! (draw-points selector
                          drawing-chan
