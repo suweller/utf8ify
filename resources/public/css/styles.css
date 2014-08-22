@@ -1,21 +1,29 @@
+* {
+  box-sizing: border-box;
+}
 body {
   background: silver;
 }
-#js-draw {
-  position: absolute;
-}
+
 .red, .green, .blue {
   position: absolute;
   height: 5px;
   width: 5px;
   border-radius: 5px
 }
-.red {
-  background: red;
+.red { background: red; }
+.green { background: green; }
+.blue { background: blue; }
+
+.grid-8x8 {
+  height: 320px;
+  width: 320px;
+  background: #030;
 }
-.green {
-  background: green;
-}
-.blue {
-  background: blue;
+
+.grid-8x8 .cell {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border: 1px solid grey;
 }

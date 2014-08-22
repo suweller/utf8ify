@@ -6,7 +6,16 @@
                        offset] :as jq]
     [jayq.util :refer [log]]
     [crate.core :as crate])
+  (:use-macros [crate.def-macros :only [defpartial]])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
+
+(defpartial grid []
+  [:div.grid-8x8
+   (repeat 64 [:div.cell])])
+
+(if (zero? (count ($ ".grid-8x8")))
+  (append ($ "body")
+          (grid)))
 
 ; Helper functions
 
@@ -68,7 +77,7 @@
             (draw-point selector color xy-obj offset))
           (recur (<! drawing-chan)))))))
 
-(let [selector "#js-draw"
+(let [selector ".grid-8x8"
       drawing-chan (draw-chan selector)]
   (go
     (loop [[msg-name msg-data] (<! drawing-chan)
