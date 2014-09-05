@@ -1,6 +1,7 @@
-(ns utf8ify.core-test
+(ns utf8ify.app-test
   (:require [cemerick.cljs.test :as t]
-            [cljs.core.async :as async :refer [<! >! chan close! sliding-buffer put! alts! timeout]])
+            [cljs.core.async :as async :refer [<! >! chan close! sliding-buffer put! alts! timeout]]
+            [utf8ify.app.core :as app])
   (:require-macros [cemerick.cljs.test :refer (is deftest)]
                    [cljs.core.async.macros :as m :refer [go]]))
 

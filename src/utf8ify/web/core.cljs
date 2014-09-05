@@ -1,9 +1,9 @@
-(ns utf8ify.ui
+(ns utf8ify.web.core
   (:require
     [cljs.core.async :as async :refer [<! >! chan close! sliding-buffer put! alts! timeout]]
     [om.core :as om :include-macros true]
     [om.dom :as dom :include-macros true]
-    [utf8ify.core :as core])
+    [utf8ify.app.core :as app])
   (:use-macros [crate.def-macros :only [defpartial]])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 

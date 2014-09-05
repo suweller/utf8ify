@@ -1,4 +1,4 @@
-(ns utf8ify.core
+(ns utf8ify.app.core
   (:require
     [cljs.core.async :as async :refer [<! >! chan close! sliding-buffer put! alts! timeout]])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))

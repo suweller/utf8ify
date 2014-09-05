@@ -31,10 +31,8 @@
                                    :optimizations :none
                                    :source-map true}}
                        {:id "test"
-                        :source-paths ["src/utf8ify" "test"]
+                        :source-paths ["src/utf8ify/app" "test"]
                         :notify-command ["phantomjs" :cljs.test/runner "utf8ify_test.js"]
                         :compiler {
                                    :output-to "utf8ify_test.js"
-                                   :optimizations :whitespace
-                                   :preamble ["react/react.min.js"]
-                                   :externs ["react/externs/react.js"]}}]})
+                                   :optimizations :whitespace}}]})
