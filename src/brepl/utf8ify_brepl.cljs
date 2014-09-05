@@ -1,4 +1,4 @@
-(ns perfection-brepl
+(ns utf8ify-brepl
 
     (:require [clojure.browser.repl :as repl]))
 
