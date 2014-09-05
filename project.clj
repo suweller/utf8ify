@@ -6,7 +6,6 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2277"]
                  [figwheel "0.1.3-SNAPSHOT"]
-                 [crate "0.2.4"]
                  [om "0.7.1"]]
 
   :jvm-opts ["-Xmx1G"]

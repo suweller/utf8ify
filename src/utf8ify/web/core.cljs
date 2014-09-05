@@ -4,7 +4,6 @@
     [om.core :as om :include-macros true]
     [om.dom :as dom :include-macros true]
     [utf8ify.app.core :as app])
-  (:use-macros [crate.def-macros :only [defpartial]])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
 (def grid-size 64)
