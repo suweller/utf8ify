@@ -10,4 +10,3 @@
   (loop [[msg-name _ :as msg] (<! draw-events)]
     (.log js/console msg-name)
     (recur (<! draw-events))))
-
