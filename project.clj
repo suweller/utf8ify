@@ -6,7 +6,6 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2277"]
                  [figwheel "0.1.3-SNAPSHOT"]
-                 [jayq "2.5.2"]
                  [crate "0.2.4"]
                  [om "0.7.1"]]
 
@@ -36,4 +35,6 @@
                         :notify-command ["phantomjs" :cljs.test/runner "perfection_test.js"]
                         :compiler {
                                    :output-to "perfection_test.js"
-                                   :optimizations :whitespace}}]})
+                                   :optimizations :whitespace
+                                   :preamble ["react/react.min.js"]
+                                   :externs ["react/externs/react.js"]}}]})
