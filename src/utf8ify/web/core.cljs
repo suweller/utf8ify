@@ -31,12 +31,13 @@
   (loop [[msg-name {x :x y :y}] (<! app/draw-events)]
     (let [cell (.elementFromPoint js/document x y)
           data-id (.-id (.-dataset cell))]
-      (.log js/console (str "Cell: " data-id))
       (activate-cell data-id))
     (recur (<! app/draw-events))))
 
 (defn activate-cell [id]
+  (.log js/console (str "Cell: " id))
   (swap! app-state (fn [data]
          (let [cells (:cells data)
-               updated-cells (map (fn [cell] (assoc cell {:on (or (:on cell) (= (:id cell) id))})) cells)]
+               updated-cells (map (fn [cell]
+                                    (assoc cell {:on (or (:on cell) (= (:id cell) id))})) cells)]
            (assoc data {:cells updated-cells})))))
