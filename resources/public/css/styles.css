@@ -16,6 +16,7 @@ body {
 .blue { background: blue; }
 
 .grid {
+  margin: 0 auto;
   width: 320px;
   background: #030;
 }

@@ -4,7 +4,15 @@ A Clojure library designed to ... well, that part is up to you.
 
 ## Usage
 
-FIXME
+```
+lein figwheel dev
+lein cljsbuild auto test
+```
+
+```
+lein repl
+lein cljsbuild auto release
+```
 
 ## License
 
