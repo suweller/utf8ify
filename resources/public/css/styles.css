@@ -23,7 +23,14 @@ body {
 }
 .grid .cell {
   display: inline-block;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  cursor: crosshair;
   height: 40px;
   width: 40px;
   border: 1px solid grey;
+}
+.cell[data-on=true] {
+  background: red;
 }
