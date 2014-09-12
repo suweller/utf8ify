@@ -8,7 +8,7 @@ body {
 .grid {
   position: relative;
   margin: 0 auto;
-  width: 460px;
+  width: 140px;
   background: #030;
 }
 .grid .cell {

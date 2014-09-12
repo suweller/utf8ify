@@ -6,7 +6,7 @@
     [utf8ify.app.core :as app])
   (:require-macros [cljs.core.async.macros :as m :refer [go]]))
 
-(def grid-size 506)
+(def grid-size 49)
 (def app-state (atom
                  {:cells (take grid-size (map (fn [n] {:id n :on false}) (iterate inc 0)))}))
 
