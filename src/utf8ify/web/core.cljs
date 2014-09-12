@@ -11,19 +11,18 @@
                  {:cells (take grid-size (map (fn [n] {:id n :on false}) (iterate inc 0)))}))
 
 (defn grid [data owner]
-  (defn create-cell [cell]
+  (def render-grid
+    (let [push-event (partial xy-message app/mouse-events)]
+      (partial dom/div #js {:className "grid"
+                            :onMouseDown #(push-event :start %)
+                            :onMouseMove #(push-event :move %)
+                            :onMouseUp #(push-event :stop %)})))
+  (defn render-cell [cell]
     (dom/div #js {:data-id (:id cell)
                   :data-on (:on cell)
                   :className "cell"}))
-  (om/component
-    (let [cells (:cells data) mouse-events app/mouse-events
-          post-event (partial xy-message mouse-events)]
-      (apply dom/div
-             #js {:className "grid"
-                  :onMouseDown #(post-event :start %)
-                  :onMouseMove #(post-event :move %)
-                  :onMouseUp #(post-event :stop %)}
-             (map create-cell cells)))))
+  (om/component (apply render-grid
+                       (map render-cell (:cells data)))))
 
 (defn xy-message [ch msg-name xy-obj]
   (put! ch [msg-name {:x (.-pageX xy-obj) :y (.-pageY xy-obj)}]))
@@ -49,4 +48,3 @@
       (recur (<! app/draw-events)))))
 
 (main)
-
