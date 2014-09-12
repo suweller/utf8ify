@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  color: #ddd;
+  background: black;
+}
+h1 {
+  font-size: 28px;
+  font-family: monospace;
+  text-align: center;
+}
+
+.container {
+  margin: 0 auto;
+  width: 282px;
+}
+.grid {
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid white;
+}
+.grid .cell {
+  display: inline-block;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  cursor: crosshair;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #bbb;
+  background: #ccc;
+}
+.grid .cell[data-on=true] {
+  background: white;
+}
+
+#result {
+  font-size: 28px;
+  text-align: center;
+}
+#result span {
+  color: black;
+  background: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 64px;
+}
