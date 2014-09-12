@@ -2,12 +2,8 @@
   box-sizing: border-box;
 }
 body {
-  background: silver;
-}
-
-.container {
-  margin: 0 auto;
-  width: 140px;
+  color: #ddd;
+  background: black;
 }
 h1 {
   font-size: 28px;
@@ -15,9 +11,14 @@ h1 {
   text-align: center;
 }
 
+.container {
+  margin: 0 auto;
+  width: 282px;
+}
 .grid {
   position: relative;
-  background: #030;
+  margin-bottom: 20px;
+  border: 1px solid white;
 }
 .grid .cell {
   display: inline-block;
@@ -25,10 +26,23 @@ h1 {
   -webkit-user-select: none;
   -moz-user-select: none;
   cursor: crosshair;
-  height: 20px;
-  width: 20px;
-  border: 1px solid grey;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #bbb;
+  background: #ccc;
 }
 .grid .cell[data-on=true] {
-  background: red;
+  background: white;
+}
+
+#result {
+  font-size: 28px;
+  text-align: center;
+}
+#result span {
+  color: black;
+  background: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 64px;
 }
