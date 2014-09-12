@@ -10,7 +10,7 @@
 (def grid-size 49)
 (def app-state (atom
                  {:cells (take grid-size (map (fn [n] {:id n :on false}) (iterate inc 0)))
-                  :exact-match "␣"}))
+                  :exact-match " "}))
 
 (defn grid [data owner]
   (def render-grid
