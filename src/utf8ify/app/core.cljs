@@ -5,14 +5,16 @@
 
 (def mouse-events (chan))
 (def draw-events (chan))
+(def match-events (chan))
 
 (defn publish-draw-events! []
   (go
     (loop [[msg-name _ :as msg] (<! mouse-events)
            drawing false]
       (let [start (= msg-name :start)
-            continue (not (= msg-name :stop))
-            draw (and (or drawing start) continue)]
+            stop (= msg-name :stop)
+            draw (and (or drawing start) (not stop))]
+        (if stop (>! match-events msg))
         (if draw (>! draw-events msg))
         (recur (<! mouse-events) draw)))))
 
