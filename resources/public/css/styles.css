@@ -5,10 +5,18 @@ body {
   background: silver;
 }
 
-.grid {
-  position: relative;
+.container {
   margin: 0 auto;
   width: 140px;
+}
+h1 {
+  font-size: 28px;
+  font-family: monospace;
+  text-align: center;
+}
+
+.grid {
+  position: relative;
   background: #030;
 }
 .grid .cell {
