@@ -8,7 +8,8 @@
 
 (def grid-size 49)
 (def app-state (atom
-                 {:cells (take grid-size (map (fn [n] {:id n :on false}) (iterate inc 0)))}))
+                 {:cells (take grid-size (map (fn [n] {:id n :on false}) (iterate inc 0)))
+                  :exact-match "␣"}))
 
 (defn grid [data owner]
   (def render-grid
@@ -26,9 +27,6 @@
 
 (defn xy-message [ch msg-name xy-obj]
   (put! ch [msg-name {:x (.-pageX xy-obj) :y (.-pageY xy-obj)}]))
-
-(om/root grid app-state
-         {:target (. js/document (getElementById "app")) })
 
 (defn- String->Number [s]
   (js/parseFloat s))
@@ -48,3 +46,10 @@
       (recur (<! app/draw-events)))))
 
 (main)
+(om/root grid
+         app-state
+         {:target (. js/document (getElementById "app")) })
+(om/root (fn [app-state owner]
+           (om/component (dom/span nil (:exact-match app-state))))
+         app-state
+         {:target (. js/document (getElementById "result")) })
