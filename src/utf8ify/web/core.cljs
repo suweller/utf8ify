@@ -34,10 +34,14 @@
          :cells (->> (:cells data)
                      (map (fn [cell] (assoc cell :on (or (:on cell) (= (:id cell) id))))))))
 
-(go
-  (loop [[msg-name {x :x y :y}] (<! app/draw-events)]
-    (let [cell (.elementFromPoint js/document x y)
-          data-id (.-id (.-dataset cell))]
-      (swap! app-state #(activate-cell (String->Number data-id) %)))
-    (recur (<! app/draw-events))))
+(defn main []
+  (app/publish-draw-events!)
+  (go
+    (loop [[msg-name {x :x y :y}] (<! app/draw-events)]
+      (let [cell (.elementFromPoint js/document x y)
+            data-id (.-id (.-dataset cell))]
+        (swap! app-state #(activate-cell (String->Number data-id) %)))
+      (recur (<! app/draw-events)))))
+
+(main)
 
