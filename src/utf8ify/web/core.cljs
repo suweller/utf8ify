@@ -11,14 +11,19 @@
                  {:cells (take grid-size (map (fn [n] {:id n :on false}) (iterate inc 0)))}))
 
 (defn grid [data owner]
+  (defn create-cell [cell]
+    (dom/div #js {:data-id (:id cell)
+                  :data-on (:on cell)
+                  :className "cell"}))
   (om/component
-    (let [cells (:cells data) mouse-events app/mouse-events]
+    (let [cells (:cells data) mouse-events app/mouse-events
+          post-event (partial xy-message mouse-events)]
       (apply dom/div
              #js {:className "grid"
-                  :onMouseDown #(xy-message mouse-events :start %)
-                  :onMouseMove #(xy-message mouse-events :move %)
-                  :onMouseUp #(xy-message mouse-events :stop %)}
-             (map (fn [cell] (dom/div #js {:data-id (:id cell) :data-on (:on cell) :className "cell"})) cells)))))
+                  :onMouseDown #(post-event :start %)
+                  :onMouseMove #(post-event :move %)
+                  :onMouseUp #(post-event :stop %)}
+             (map create-cell cells)))))
 
 (defn xy-message [ch msg-name xy-obj]
   (put! ch [msg-name {:x (.-pageX xy-obj) :y (.-pageY xy-obj)}]))
@@ -37,7 +42,7 @@
 (defn main []
   (app/publish-draw-events!)
   (go
-    (loop [[msg-name {x :x y :y}] (<! app/draw-events)]
+    (loop [[_ {x :x y :y}] (<! app/draw-events)]
       (let [cell (.elementFromPoint js/document x y)
             data-id (.-id (.-dataset cell))]
         (swap! app-state #(activate-cell (String->Number data-id) %)))
