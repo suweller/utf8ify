@@ -16,3 +16,5 @@
         (if draw (>! draw-events msg))
         (recur (<! mouse-events) draw)))))
 
+(defn find-character [pattern-map drawing]
+  (get pattern-map drawing))
