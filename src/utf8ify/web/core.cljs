@@ -17,8 +17,7 @@
              #js {:className "grid"
                   :onMouseDown #(xy-message mouse-events :start %)
                   :onMouseMove #(xy-message mouse-events :move %)
-                  :onMouseUp #(xy-message mouse-events :stop %)
-                  :onMouseLeave #(xy-message mouse-events :stop %)}
+                  :onMouseUp #(xy-message mouse-events :stop %)}
              (map (fn [cell] (dom/div #js {:data-id (:id cell) :data-on (:on cell) :className "cell"})) cells)))))
 
 (defn xy-message [ch msg-name xy-obj]
