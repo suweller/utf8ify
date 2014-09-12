@@ -24,14 +24,20 @@
               :builds [
                        {:id "dev"
                         :source-paths ["src/utf8ify" "src/figwheel" "src/brepl"]
-                        :compiler {
-                                   :output-to "resources/public/utf8ify.js"
+                        :compiler {:output-to "resources/public/utf8ify.js"
                                    :output-dir "resources/public/out"
                                    :optimizations :none
                                    :source-map true}}
                        {:id "test"
                         :source-paths ["src/utf8ify/app" "test"]
                         :notify-command ["phantomjs" :cljs.test/runner "utf8ify_test.js"]
-                        :compiler {
-                                   :output-to "utf8ify_test.js"
-                                   :optimizations :whitespace}}]})
+                        :compiler {:output-to "utf8ify_test.js"
+                                   :optimizations :whitespace}}
+                       {:id "release"
+                        :source-paths ["src/utf8ify"]
+                        :compiler {:output-to "resources/public/utf8ify.min.js"
+                                   :output-dir "resources/public/prod-out"
+                                   :optimizations :advanced
+                                   :pretty-print false
+                                   :preamble ["react/react.min.js"]
+                                   :externs ["react/externs/react.js"]}}]})
